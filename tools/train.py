@@ -99,6 +99,7 @@ if __name__ == "__main__":
     n_class = dataset.object_cfg.n_class
     n_epoch = config_dict['train_cfg']['n_epoch']
     batch_size = config_dict['train_cfg']['batch_size']
+    # batch_size = 1
     lr = config_dict['train_cfg']['lr']
     if 'stacked_num' in model_cfg:
         stacked_num = model_cfg['stacked_num']

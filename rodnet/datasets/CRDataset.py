@@ -62,12 +62,13 @@ class CRDataset(data.Dataset):
             self.data_files = list_pkl_filenames_from_prepared(data_dir, split)
         self.seq_names = [name.split('.')[0] for name in self.data_files]
         self.n_seq = len(self.seq_names)
-
         split_folder = split
         for seq_id, data_file in enumerate(tqdm(self.data_files)):
             data_file_path = os.path.join(data_dir, split_folder, data_file)
+            print(data_file_path)
             data_details = pickle.load(open(data_file_path, 'rb'))
             if split == 'train' or split == 'valid':
+                # print(data_details['anno'] )
                 assert data_details['anno'] is not None
             n_frame = data_details['n_frame']
             self.image_paths.append(data_details['image_paths'])
